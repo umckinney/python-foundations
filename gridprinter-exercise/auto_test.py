@@ -3,17 +3,16 @@ import contextlib, io
 
 
 def validate(actual, expected):
-    actual_lines = actual.strip().split('\n')
-    for idx, line in enumerate(expected.strip().split('\n')):
+    actual_lines = actual.strip().split("\n")
+    for idx, line in enumerate(expected.strip().split("\n")):
         if actual_lines[idx].strip() != line.strip():
-            print('here')
+            print("here")
             print(actual_lines[idx].strip(), line.strip())
             return False
     return True
 
 
-expected_grid1 = \
-    """+ - - - - + - - - - +
+expected_grid1 = """+ - - - - + - - - - +
 |         |         |
 |         |         |
 |         |         |
@@ -31,8 +30,7 @@ with contextlib.redirect_stdout(f):
     grid_printer.print_grid1()
 assert validate(f.getvalue(), expected_grid1)
 
-expected_grid2 = \
-    """+ - + - +
+expected_grid2 = """+ - + - +
 |   |   |
 + - + - +
 |   |   |
@@ -46,8 +44,7 @@ print(expected_grid2)
 assert validate(f.getvalue(), expected_grid2)
 
 
-expected_grid3 = \
-    """+ - - - - + - - - - + - - - - +
+expected_grid3 = """+ - - - - + - - - - + - - - - +
 |         |         |         |
 |         |         |         |
 |         |         |         |
